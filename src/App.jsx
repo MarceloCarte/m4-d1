@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import CardPizza from "./components/CardPizza";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <div>
+          <Home />
+        </div>
+
+        <div className="flex grid-cols-3 p-14 gap-8 justify-center overflow-hidden flex-grow">
+          <CardPizza
+            name="Napolitana"
+            price="5950"
+            ingredients={["mozzarella", "tomates", "jamón", "orégano"]}
+            img="https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.com/o/pizzeria%2Fpizza-1239077_640_cl.jpg?alt=media&token=6a9a33da-5c00-49d4-9080-784dcc87ec2c"
+          />
+          <CardPizza
+            name="Española"
+            price={6950}
+            ingredients={["mozzarella", "gorgonzola", "parmesano", "provolone"]}
+            img="https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.co
+m/o/pizzeria%2Fcheese-164872_640_com.jpg?alt=media&token=18b2b821-4d0d-43f2-
+a1c6-8c57bc388fab"
+          />
+          <CardPizza
+            name="Pepperoni"
+            price={6950}
+            ingredients={["mozzarella", "pepperoni", "orégano"]}
+            img="https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.co
+m/o/pizzeria%2Fpizza-1239077_640_com.jpg?alt=media&token=e7cde87a-08d5-4040-
+ac54-90f6c31eb3e3"
+          />
+        </div>
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
